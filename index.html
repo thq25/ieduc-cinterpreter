@@ -1,112 +1,803 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Corporate Interpreter Service</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f9f9f9;
-      color: #333;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan Penerjemah Korporat | Penerjemah Profesional untuk Industri Manufaktur</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Layanan penerjemah profesional untuk perusahaan manufaktur di Cikarang, Bandung, Subang, dan Jakarta. Spesialisasi dalam audit ISO, kunjungan pabrik, dan pelatihan teknis.">
+    <meta name="keywords" content="layanan penerjemah, penerjemah manufaktur, penerjemah audit ISO, penerjemah kunjungan pabrik, penerjemah pelatihan teknis, Cikarang, Bandung, Jakarta">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Layanan Penerjemah Korporat | Spesialis Industri Manufaktur">
+    <meta property="og:description" content="Layanan penerjemah profesional untuk perusahaan manufaktur. Spesialisasi dalam audit ISO, kunjungan pabrik, dan pelatihan teknis.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.penerjemahkorporat.com">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/0a4d92/ffffff?text=Layanan+Penerjemah+Korporat">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://via.placeholder.com/32x32/0a4d92/ffffff?text=PK">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #0a4d92;
+            --secondary-color: #0077cc;
+            --accent-color: #ff6b00;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            padding-top: 76px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+        
+        .navbar-brand i {
+            color: var(--accent-color);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e05e00;
+            border-color: #e05e00;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(10, 77, 146, 0.8), rgba(10, 77, 146, 0.9)), url('https://via.placeholder.com/1920x1080/333333/ffffff?text=Latar+Belakang+Pabrik+Manufaktur');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+        }
+        
+        .hero h1, .hero p {
+            color: white;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+        
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-top-left-radius: 0.375rem;
+            border-top-right-radius: 0.375rem;
+        }
+        
+        .testimonial-card {
+            position: relative;
+            height: 100%;
+        }
+        
+        .testimonial-card::before {
+            content: '\201C';
+            font-family: Georgia, serif;
+            font-size: 5rem;
+            position: absolute;
+            top: -1rem;
+            left: 1rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .client-logo {
+            max-width: 150px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .client-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        .credential-badge {
+            background-color: #f8f9fa;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .credential-badge i {
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+        }
+        
+        .cta-section {
+            background: linear-gradient(rgba(0, 119, 204, 0.9), rgba(10, 77, 146, 0.9)), url('https://via.placeholder.com/1920x1080/333333/ffffff?text=Pertemuan+Korporat');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .cta-section h2 {
+            color: white;
+        }
+        
+        footer {
+            background-color: #212529;
+            color: white;
+        }
+        
+        footer h5 {
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary-color);
+        }
+    </style>
+    
+    <!-- Schema.org Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Layanan Penerjemah Korporat",
+      "description": "Layanan penerjemah profesional untuk perusahaan manufaktur di Cikarang, Bandung, Subang, dan Jakarta. Spesialisasi dalam audit ISO, kunjungan pabrik, dan pelatihan teknis.",
+      "url": "https://www.penerjemahkorporat.com",
+      "telephone": "+62-812-3456-7890",
+      "email": "info@penerjemahkorporat.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cikarang",
+        "addressRegion": "Jawa Barat",
+        "addressCountry": "Indonesia"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-6.3405",
+        "longitude": "107.1753"
+      },
+      "areaServed": ["Cikarang", "Bandung", "Subang", "Jakarta"],
+      "serviceType": ["Penerjemah untuk Audit ISO", "Penerjemah Kunjungan Pabrik", "Penerjemah Pelatihan Teknis"],
+      "priceRange": "$$",
+      "openingHours": "Mo-Fr 08:00-17:00",
+      "sameAs": [
+        "https://www.facebook.com/penerjemahkorporat",
+        "https://www.linkedin.com/company/layanan-penerjemah-korporat",
+        "https://www.instagram.com/penerjemahkorporat"
+      ]
     }
-
-    .hero {
-      background-color: #004080;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.6;
-    }
-
-    .cta {
-      background-color: #007b00;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-
-    .cta a {
-      display: inline-block;
-      margin-top: 15px;
-      background-color: #00cc00;
-      color: white;
-      padding: 12px 24px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-    }
-
-    .cta a:hover {
-      background-color: #009900;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #777;
-    }
-  </style>
+    </script>
 </head>
 <body>
-
-  <div class="hero">
-    <h1>Corporate Interpreter Service</h1>
-    <p>Professional and reliable interpretation service for meetings, conferences, business visits, and negotiations — available on-site or online.</p>
-  </div>
-
-  <div class="section">
-    <h2>Why Choose Us?</h2>
-    <ul>
-      <li>✅ Experienced interpreters for English–Indonesian and other major languages</li>
-      <li>✅ Specialised in corporate and technical contexts</li>
-      <li>✅ Flexible scheduling, including urgent and last-minute requests</li>
-      <li>✅ Available for full-day, half-day, or hourly sessions</li>
-      <li>✅ Confidential, accurate, and culturally sensitive</li>
-    </ul>
-
-    <h2>Use Cases</h2>
-    <p>Our interpreters are ready to assist you during:</p>
-    <ul>
-      <li>• Business negotiations and contract discussions</li>
-      <li>• Online or offline corporate meetings</li>
-      <li>• Factory visits and site tours</li>
-      <li>• International training and presentations</li>
-      <li>• Trade shows and exhibitions</li>
-    </ul>
-
-    <h2>Coverage Area</h2>
-    <p>On-site service available in Jakarta, Bandung, and surrounding cities. Remote service available nationwide and internationally via Zoom, Teams, or Google Meet.</p>
-  </div>
-
-  <div class="cta">
-    <h2>Need an Interpreter? Let's Talk!</h2>
-    <p>Send us your request and our team will respond promptly.</p>
-    <a href="https://wa.me/6281234567890" target="_blank">Contact Us on WhatsApp</a>
-  </div>
-
-  <footer>
-    &copy; 2025 Corporate Interpreter Service | All Rights Reserved
-  </footer>
-
+    <!-- Header/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-language me-2"></i>
+                <span>Penerjemah Korporat</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#layanan">Layanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimoni">Testimoni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#profil">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kontak">Kontak</a>
+                    </li>
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a href="#kontak" class="btn btn-primary">Pesan Sekarang</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="beranda">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">Pastikan Kunjungan Audit Sukses – Layanan Penerjemah & Pelatihan yang Disesuaikan untuk Tim Anda</h1>
+                    <p class="lead mb-5">Layanan penerjemah profesional untuk perusahaan manufaktur di area Cikarang, Bandung, Subang, dan Jakarta. Spesialisasi dalam audit ISO, kunjungan pabrik, dan pelatihan teknis.</p>
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                        <a href="#kontak" class="btn btn-primary btn-lg px-4 py-3" id="bookConsultation">Pesan Konsultasi Gratis</a>
+                        <a href="#layanan" class="btn btn-secondary btn-lg px-4 py-3" id="checkAvailability">Cek Ketersediaan Penerjemah</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="py-5 bg-light" id="layanan">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title display-5">Layanan Spesialis Kami</h2>
+                <p class="lead text-muted">Layanan penerjemahan profesional yang disesuaikan untuk kebutuhan industri manufaktur</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Service 1 -->
+                <div class="col-md-4">
+                    <div class="card service-card h-100 border-0 shadow-sm">
+                        <div class="service-img" style="background-image: url('https://via.placeholder.com/600x400/0a4d92/ffffff?text=Penerjemah+Audit+ISO');"></div>
+                        <div class="card-body p-4">
+                            <h3 class="card-title">Penerjemah untuk Audit ISO</h3>
+                            <p class="card-text">Pastikan komunikasi yang jelas selama audit sertifikasi dan pengawasan ISO yang kritis dengan penerjemah spesialis kami.</p>
+                            <ul class="mb-4">
+                                <li>Keahlian terminologi ISO 9001, 14001, 45001</li>
+                                <li>Penerjemahan dokumentasi teknis</li>
+                                <li>Penerjemahan real-time selama wawancara audit</li>
+                                <li>Bantuan dengan respons tindakan korektif</li>
+                            </ul>
+                            <a href="#kontak" class="btn btn-primary" id="isoAuditCTA">Minta Penerjemah Audit ISO</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="col-md-4">
+                    <div class="card service-card h-100 border-0 shadow-sm">
+                        <div class="service-img" style="background-image: url('https://via.placeholder.com/600x400/0077cc/ffffff?text=Penerjemah+Kunjungan+Pabrik');"></div>
+                        <div class="card-body p-4">
+                            <h3 class="card-title">Kunjungan Pabrik dengan Mitra Asing</h3>
+                            <p class="card-text">Berikan kesan yang tepat kepada klien, investor, dan mitra asing selama kunjungan pabrik yang penting.</p>
+                            <ul class="mb-4">
+                                <li>Terminologi proses manufaktur</li>
+                                <li>Konteks budaya dan etiket bisnis</li>
+                                <li>Dukungan presentasi teknis</li>
+                                <li>Fasilitasi tanya jawab dan bantuan tindak lanjut</li>
+                            </ul>
+                            <a href="#kontak" class="btn btn-primary" id="factoryVisitCTA">Pesan Penerjemah Kunjungan Pabrik</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="col-md-4">
+                    <div class="card service-card h-100 border-0 shadow-sm">
+                        <div class="service-img" style="background-image: url('https://via.placeholder.com/600x400/ff6b00/ffffff?text=Penerjemah+Pelatihan+Teknis');"></div>
+                        <div class="card-body p-4">
+                            <h3 class="card-title">Pelatihan Teknis untuk Klien Luar Negeri</h3>
+                            <p class="card-text">Jembatani kesenjangan bahasa selama sesi pelatihan teknis dengan klien atau anggota tim dari luar negeri.</p>
+                            <ul class="mb-4">
+                                <li>Terminologi pengoperasian peralatan</li>
+                                <li>Penerjemahan prosedur keselamatan</li>
+                                <li>Interpretasi manual teknis</li>
+                                <li>Bantuan demonstrasi langsung</li>
+                            </ul>
+                            <a href="#kontak" class="btn btn-primary" id="technicalTrainingCTA">Jadwalkan Penerjemah Pelatihan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="py-5" id="testimoni">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title display-5">Apa Kata Klien Kami</h2>
+                <p class="lead text-muted">Dipercaya oleh perusahaan manufaktur terkemuka di wilayah ini</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Testimonial 1 -->
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100 border-0 shadow-sm p-4">
+                        <div class="testimonial-text mb-4">
+                            "Penerjemah membuat proses audit ISO kami berjalan lancar dan percaya diri. Pengetahuan teknis mereka sangat mengesankan dan membantu kami mencapai sertifikasi tanpa masalah komunikasi."
+                        </div>
+                        <div class="d-flex align-items-center mt-auto">
+                            <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Budi Santoso - Manajer Kualitas di PT Manufacturing Excellence" class="rounded-circle me-3" width="50" height="50">
+                            <div>
+                                <h5 class="mb-0 fs-6">Budi Santoso</h5>
+                                <p class="text-muted mb-0 small">Manajer Kualitas di PT Manufacturing Excellence</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100 border-0 shadow-sm p-4">
+                        <div class="testimonial-text mb-4">
+                            "Memiliki penerjemah profesional selama kunjungan klien Jepang ke pabrik kami sangat penting. Pengetahuan terminologi teknis dan pemahaman budaya membantu kami mendapatkan kontrak besar."
+                        </div>
+                        <div class="d-flex align-items-center mt-auto">
+                            <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Siti Rahayu - Direktur Pengembangan Bisnis di Precision Parts Indonesia" class="rounded-circle me-3" width="50" height="50">
+                            <div>
+                                <h5 class="mb-0 fs-6">Siti Rahayu</h5>
+                                <p class="text-muted mb-0 small">Direktur Pengembangan Bisnis di Precision Parts Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100 border-0 shadow-sm p-4">
+                        <div class="testimonial-text mb-4">
+                            "Pelatihan teknis untuk tim kami dari luar negeri tidak mungkin dilakukan tanpa keahlian penerjemah. Mereka memahami bahasa dan terminologi mesin yang kompleks."
+                        </div>
+                        <div class="d-flex align-items-center mt-auto">
+                            <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="David Chen - Manajer Produksi di Global Auto Components" class="rounded-circle me-3" width="50" height="50">
+                            <div>
+                                <h5 class="mb-0 fs-6">David Chen</h5>
+                                <p class="text-muted mb-0 small">Manajer Produksi di Global Auto Components</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <p class="mb-4">Digunakan oleh 15+ produsen di Bandung & Jabodetabek</p>
+                <div class="row justify-content-center align-items-center g-4">
+                    <div class="col-4 col-md-2">
+                        <img src="https://via.placeholder.com/150x80/eeeeee/333333?text=Klien+1" alt="Logo Klien" class="client-logo img-fluid">
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <img src="https://via.placeholder.com/150x80/eeeeee/333333?text=Klien+2" alt="Logo Klien" class="client-logo img-fluid">
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <img src="https://via.placeholder.com/150x80/eeeeee/333333?text=Klien+3" alt="Logo Klien" class="client-logo img-fluid">
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <img src="https://via.placeholder.com/150x80/eeeeee/333333?text=Klien+4" alt="Logo Klien" class="client-logo img-fluid">
+                    </div>
+                    <div class="col-4 col-md-2">
+                        <img src="https://via.placeholder.com/150x80/eeeeee/333333?text=Klien+5" alt="Logo Klien" class="client-logo img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Profile Section -->
+    <section class="py-5 bg-light" id="profil">
+        <div class="container py-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-4 text-center">
+                    <img src="https://via.placeholder.com/300x300/0a4d92/ffffff?text=Penerjemah+Profesional" alt="Penerjemah Profesional" class="img-fluid rounded-circle border border-5 border-white shadow" style="max-width: 300px;">
+                </div>
+                <div class="col-lg-8">
+                    <h2 class="display-5 mb-4">Temui Penerjemah Profesional Anda</h2>
+                    <p class="lead">Dengan pengalaman lebih dari 10 tahun di industri manufaktur, penerjemah utama kami mengkhususkan diri dalam terminologi teknis dan komunikasi bisnis lintas budaya.</p>
+                    <p>Setelah bekerja dengan perusahaan multinasional di seluruh area Cikarang, Bandung, Subang, dan Jakarta, kami memahami tantangan unik yang dihadapi oleh perusahaan manufaktur selama audit, kunjungan klien, dan sesi pelatihan teknis.</p>
+                    
+                    <div class="mt-4">
+                        <div class="credential-badge">
+                            <i class="fas fa-certificate"></i>
+                            <span>Pengalaman 10+ Tahun</span>
+                        </div>
+                        <div class="credential-badge">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Bersertifikat ISO</span>
+                        </div>
+                        <div class="credential-badge">
+                            <i class="fas fa-language"></i>
+                            <span>Ahli Terminologi Teknis</span>
+                        </div>
+                        <div class="credential-badge">
+                            <i class="fas fa-industry"></i>
+                            <span>Spesialis Manufaktur</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section py-5 text-center text-white" id="cta">
+        <div class="container py-5">
+            <h2 class="display-5 mb-4">Siap Memastikan Komunikasi yang Jelas?</h2>
+            <p class="lead mb-5 mx-auto" style="max-width: 700px;">Jangan ambil risiko kesalahpahaman selama interaksi bisnis penting. Layanan penerjemah khusus kami memastikan operasi manufaktur Anda berjalan lancar dengan mitra, auditor, dan klien internasional.</p>
+            <a href="#kontak" class="btn btn-primary btn-lg px-5 py-3" id="ctaButton">Pesan Penerjemah Anda Hari Ini</a>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="py-5 bg-light" id="kontak">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title display-5">Hubungi Kami</h2>
+                <p class="lead text-muted">Hubungi kami untuk mendiskusikan kebutuhan penerjemah Anda</p>
+            </div>
+            
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h3 class="h4 mb-4">Kami Siap Membantu</h3>
+                    <p class="mb-4">Hubungi kami untuk mendiskusikan kebutuhan penerjemah spesifik untuk fasilitas manufaktur Anda. Kami melayani area Cikarang, Bandung, Subang, dan Jakarta.</p>
+                    
+                    <div class="d-flex mb-3">
+                        <i class="fas fa-map-marker-alt text-primary me-3 mt-1" style="width: 20px;"></i>
+                        <span>Kawasan Industri Jababeka, Cikarang, Jawa Barat</span>
+                    </div>
+                    
+                    <div class="d-flex mb-3">
+                        <i class="fas fa-phone text-primary me-3 mt-1" style="width: 20px;"></i>
+                        <span>+62-812-3456-7890</span>
+                    </div>
+                    
+                    <div class="d-flex mb-3">
+                        <i class="fas fa-envelope text-primary me-3 mt-1" style="width: 20px;"></i>
+                        <span>info@penerjemahkorporat.com</span>
+                    </div>
+                    
+                    <div class="d-flex mb-3">
+                        <i class="fas fa-clock text-primary me-3 mt-1" style="width: 20px;"></i>
+                        <span>Senin - Jumat: 8:00 - 17:00</span>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4 p-md-5">
+                            <form id="bookingForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="name" class="form-label">Nama Lengkap</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="company" class="form-label">Nama Perusahaan</label>
+                                        <input type="text" class="form-control" id="company" required>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">Alamat Email</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label">Nomor Telepon</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="service" class="form-label">Layanan yang Dibutuhkan</label>
+                                        <select class="form-select" id="service" required>
+                                            <option value="">Pilih Layanan</option>
+                                            <option value="iso-audit">Penerjemah Audit ISO</option>
+                                            <option value="factory-visit">Penerjemah Kunjungan Pabrik</option>
+                                            <option value="technical-training">Penerjemah Pelatihan Teknis</option>
+                                            <option value="other">Lainnya (Mohon jelaskan)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <label for="date" class="form-label">Tanggal yang Diinginkan</label>
+                                        <input type="date" class="form-control" id="date" required>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <label for="message" class="form-label">Informasi Tambahan</label>
+                                        <textarea class="form-control" id="message" rows="4"></textarea>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary btn-lg" id="submitForm">Kirim Permintaan</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Penerjemah Korporat</h5>
+                    <p class="text-white-50">Layanan penerjemah profesional untuk perusahaan manufaktur di area Cikarang, Bandung, Subang, dan Jakarta.</p>
+                    <div class="social-links mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Layanan Kami</h5>
+                    <ul class="footer-links">
+                        <li><a href="#layanan">Penerjemah Audit ISO</a></li>
+                        <li><a href="#layanan">Penerjemah Kunjungan Pabrik</a></li>
+                        <li><a href="#layanan">Penerjemah Pelatihan Teknis</a></li>
+                        <li><a href="#kontak">Minta Layanan Khusus</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Area Layanan</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Cikarang</a></li>
+                        <li><a href="#">Bandung</a></li>
+                        <li><a href="#">Subang</a></li>
+                        <li><a href="#">Jakarta</a></li>
+                        <li><a href="#">Lokasi Lainnya</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="mb-4">Tautan Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#layanan">Layanan</a></li>
+                        <li><a href="#testimoni">Testimoni</a></li>
+                        <li><a href="#profil">Tentang Kami</a></li>
+                        <li><a href="#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center border-top border-secondary pt-4 mt-5">
+                <p class="text-white-50">&copy; 2025 Layanan Penerjemah Korporat. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') return;
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navbarCollapse = document.getElementById('navbarNav');
+                    if (navbarCollapse.classList.contains('show')) {
+                        document.querySelector('.navbar-toggler').click();
+                    }
+                }
+            });
+        });
+        
+        // Form Submission
+        const bookingForm = document.getElementById('bookingForm');
+        
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const company = document.getElementById('company').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send this data to your server
+            // For this example, we'll just show an alert
+            alert(`Terima kasih, ${name}! Permintaan pemesanan Anda telah diterima. Kami akan menghubungi Anda segera untuk mengkonfirmasi layanan penerjemah Anda untuk tanggal ${date}.`);
+            
+            // Reset form
+            bookingForm.reset();
+        });
+        
+        // Track CTA Clicks for Analytics
+        const trackCTAClick = (ctaId, ctaName) => {
+            const ctaElement = document.getElementById(ctaId);
+            if (ctaElement) {
+                ctaElement.addEventListener('click', () => {
+                    // Google Analytics Event Tracking
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'click', {
+                            'event_category': 'CTA',
+                            'event_label': ctaName
+                        });
+                    }
+                    
+                    console.log(`CTA Clicked: ${ctaName}`);
+                });
+            }
+        };
+        
+        // Track all CTAs
+        trackCTAClick('bookConsultation', 'Hero - Book Consultation');
+        trackCTAClick('checkAvailability', 'Hero - Check Availability');
+        trackCTAClick('isoAuditCTA', 'Service - ISO Audit');
+        trackCTAClick('factoryVisitCTA', 'Service - Factory Visit');
+        trackCTAClick('technicalTrainingCTA', 'Service - Technical Training');
+        trackCTAClick('ctaButton', 'Main CTA Button');
+        trackCTAClick('submitForm', 'Contact Form Submit');
+        
+        // Google Analytics Setup
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX'); // Ganti dengan ID Google Analytics Anda
+    </script>
 </body>
 </html>
