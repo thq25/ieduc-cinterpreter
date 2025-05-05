@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layanan Penerjemah Korporat | Penerjemah Profesional untuk Industri Manufaktur</title>
+    <title>IEDUC | Jasa Interpreter Profesional</title>
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Layanan penerjemah profesional untuk perusahaan manufaktur di Cikarang, Bandung, Subang, dan Jakarta. Spesialisasi dalam audit ISO, kunjungan pabrik, dan pelatihan teknis.">
@@ -30,17 +30,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- AOS - Animate On Scroll Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <!-- Custom CSS -->
     <style>
         :root {
             --primary-color: #0a4d92;
             --secondary-color: #0077cc;
             --accent-color: #ff6b00;
+            --gradient-primary: linear-gradient(135deg, #0a4d92, #0077cc);
+            --gradient-accent: linear-gradient(135deg, #ff6b00, #ff9d4d);
         }
         
         body {
             font-family: 'Roboto', sans-serif;
-            padding-top: 76px;
+            padding-top: 100px;
+            overflow-x: hidden;
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -49,51 +55,179 @@
             color: var(--primary-color);
         }
         
+        .complogo {
+            height: 80px;
+            width: auto;
+            transition: height 0.2s ease-in-out;
+        }
+
+        .complogo.scrolled {
+            height: 40px !important;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.98) !important;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 0.3rem 1rem;
+        }
+        
         .navbar-brand {
             font-weight: 700;
             color: var(--primary-color) !important;
+            transition: all 0.3s ease;
         }
         
         .navbar-brand i {
             color: var(--accent-color);
+            transition: transform 0.5s ease;
+        }
+        
+        .navbar-brand:hover i {
+            transform: rotate(15deg);
         }
         
         .nav-link {
             font-weight: 500;
+            position: relative;
+            padding: 0.5rem 1rem !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 70%;
+        }
+        
+        /* Button Styles */
+        .btn {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.5s ease;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
         }
         
         .btn-primary {
-            background-color: var(--accent-color);
-            border-color: var(--accent-color);
+            background: var(--gradient-accent);
+            border: none;
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
         }
         
         .btn-primary:hover {
-            background-color: #e05e00;
-            border-color: #e05e00;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 0, 0.4);
+            background: var(--gradient-accent);
         }
         
         .btn-secondary {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
+            background: var(--gradient-primary);
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 119, 204, 0.3);
         }
         
         .btn-secondary:hover {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 119, 204, 0.4);
+            background: var(--gradient-primary);
         }
         
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(10, 77, 146, 0.8), rgba(10, 77, 146, 0.9)), url('https://via.placeholder.com/1920x1080/333333/ffffff?text=Latar+Belakang+Pabrik+Manufaktur');
+            background: linear-gradient(rgba(10, 77, 146, 0.6), rgba(10, 77, 146, 0.8)), url('https://webdev2025.3s-eng.co.id/wp-content/uploads/2025/05/May-4-2025-05_04_15-PM-1.png');
             background-size: cover;
-            background-position: center;
+            background-position: center;    
+            background-attachment: fixed;
             color: white;
-            padding: 5rem 0;
+            padding: 8rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            right: -50px;
+            bottom: -50px;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiPjwvcmVjdD4KPC9zdmc+');
+            z-index: 0;
+            animation: backgroundMove 30s linear infinite;
+        }
+        
+        @keyframes backgroundMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(20px, 20px);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
         
         .hero h1, .hero p {
             color: white;
         }
         
+        .hero h1 {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        /* Section Styles */
         .section-title {
             position: relative;
             margin-bottom: 3rem;
@@ -102,21 +236,25 @@
         .section-title:after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background-color: var(--accent-color);
+            background: var(--gradient-accent);
+            border-radius: 3px;
         }
         
+        /* Service Cards */
         .service-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.5s ease;
             height: 100%;
+            border: none;
+            overflow: hidden;
         }
         
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
         }
         
@@ -126,11 +264,37 @@
             background-position: center;
             border-top-left-radius: 0.375rem;
             border-top-right-radius: 0.375rem;
+            position: relative;
+            overflow: hidden;
         }
         
+        .service-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .service-card:hover .service-img::before {
+            opacity: 1;
+        }
+        
+        /* Testimonial Cards */
         .testimonial-card {
             position: relative;
             height: 100%;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
         }
         
         .testimonial-card::before {
@@ -141,7 +305,13 @@
             top: -1rem;
             left: 1rem;
             color: var(--primary-color);
-            opacity: 0.2;
+            opacity: 0.1;
+            transition: all 0.5s ease;
+        }
+        
+        .testimonial-card:hover::before {
+            transform: scale(1.2);
+            opacity: 0.15;
         }
         
         .testimonial-text {
@@ -150,16 +320,29 @@
             z-index: 1;
         }
         
+        /* Client Logos */
         .client-logo {
             max-width: 150px;
             filter: grayscale(100%);
             opacity: 0.7;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
         }
         
         .client-logo:hover {
             filter: grayscale(0);
             opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        /* Profile Section */
+        .profile-image img {
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-image img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
         
         .credential-badge {
@@ -171,31 +354,112 @@
             align-items: center;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .credential-badge:hover {
+            background-color: white;
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .credential-badge i {
             margin-right: 0.5rem;
             color: var(--accent-color);
+            transition: all 0.3s ease;
         }
         
+        .credential-badge:hover i {
+            transform: scale(1.2);
+        }
+        
+        /* CTA Section */
         .cta-section {
             background: linear-gradient(rgba(0, 119, 204, 0.9), rgba(10, 77, 146, 0.9)), url('https://via.placeholder.com/1920x1080/333333/ffffff?text=Pertemuan+Korporat');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiPjwvcmVjdD4KPC9zdmc+');
+            z-index: 0;
         }
         
         .cta-section h2 {
             color: white;
+            position: relative;
+            z-index: 1;
         }
         
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Contact Form */
+        .form-control {
+            transition: all 0.3s ease;
+            border: 1px solid #dee2e6;
+        }
+        
+        .form-control:focus {
+            box-shadow: 0 0 0 0.25rem rgba(255, 107, 0, 0.25);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        
+        .form-label {
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus + .form-label {
+            color: var(--accent-color);
+        }
+        
+        /* Footer */
         footer {
             background-color: #212529;
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-accent);
         }
         
         footer h5 {
             color: white;
+            position: relative;
+            display: inline-block;
+        }
+        
+        footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-color);
         }
         
         .footer-links {
@@ -205,17 +469,19 @@
         
         .footer-links li {
             margin-bottom: 0.8rem;
+            transition: all 0.3s ease;
         }
         
         .footer-links a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             transition: all 0.3s ease;
+            display: inline-block;
         }
         
         .footer-links a:hover {
             color: var(--accent-color);
-            padding-left: 5px;
+            transform: translateX(5px);
         }
         
         .social-links a {
@@ -229,20 +495,40 @@
             color: white;
             margin-right: 0.5rem;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-accent);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: -1;
         }
         
         .social-links a:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-3px);
+            transform: translateY(-5px) rotate(360deg);
+            color: white;
         }
         
+        .social-links a:hover::before {
+            opacity: 1;
+        }
+        
+        /* Back to Top Button */
         .back-to-top {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 40px;
-            height: 40px;
-            background-color: var(--accent-color);
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-accent);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -251,8 +537,9 @@
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             z-index: 99;
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
         }
         
         .back-to-top.show {
@@ -261,7 +548,142 @@
         }
         
         .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 107, 0, 0.4);
+        }
+        
+        .back-to-top i {
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top:hover i {
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        /* Animated Background Elements */
+        .bg-shape {
+            position: absolute;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .shape-1 {
+            top: 20%;
+            left: 10%;
+            width: 300px;
+            height: 300px;
+            border-radius: 53% 47% 52% 48% / 36% 41% 59% 64%;
             background-color: var(--primary-color);
+            animation: morph 15s linear infinite alternate;
+        }
+        
+        .shape-2 {
+            bottom: 10%;
+            right: 10%;
+            width: 200px;
+            height: 200px;
+            border-radius: 53% 47% 52% 48% / 36% 41% 59% 64%;
+            background-color: var(--accent-color);
+            animation: morph 8s linear infinite alternate-reverse;
+        }
+        
+        @keyframes morph {
+            0% {
+                border-radius: 53% 47% 52% 48% / 36% 41% 59% 64%;
+                transform: rotate(0deg);
+            }
+            100% {
+                border-radius: 40% 60% 70% 30% / 40% 50% 50% 60%;
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Reveal Animation */
+        .reveal {
+            position: relative;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 1s ease;
+        }
+        
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Highlight Text */
+        .highlight {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background-color: rgba(255, 107, 0, 1);
+            z-index: -1;
+            transform: rotate(-2deg);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero {
+                background-attachment: scroll;
+            }
+            
+            .cta-section {
+                background-attachment: scroll;
+            }
         }
     </style>
     
@@ -299,12 +721,17 @@
     </script>
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+    
     <!-- Header/Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <i class="fas fa-language me-2"></i>
-                <span>Penerjemah Korporat</span>
+                <img class="complogo me-2" src="https://webdev2025.3s-eng.co.id/wp-content/uploads/2025/05/OIP-Edited.jpg" alt="Company Logo">
+                <span>Interpreter Service</span>
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -313,7 +740,7 @@
             
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
+                    <li class="nav-item">   
                         <a class="nav-link" href="#layanan">Layanan</a>
                     </li>
                     <li class="nav-item">
@@ -335,81 +762,22 @@
     
     <!-- Hero Section -->
     <section class="hero" id="beranda">
-        <div class="container">
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="container hero-content">
             <div class="row justify-content-center text-center">
-                <div class="col-lg-8">
-                    <h1 class="display-4 fw-bold mb-4">Pastikan Kunjungan Audit Sukses – Layanan Penerjemah & Pelatihan yang Disesuaikan untuk Tim Anda</h1>
-                    <p class="lead mb-5">Layanan penerjemah profesional untuk perusahaan manufaktur di area Cikarang, Bandung, Subang, dan Jakarta. Spesialisasi dalam audit ISO, kunjungan pabrik, dan pelatihan teknis.</p>
-                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                        <a href="#kontak" class="btn btn-primary btn-lg px-4 py-3" id="bookConsultation">Pesan Konsultasi Gratis</a>
-                        <a href="#layanan" class="btn btn-secondary btn-lg px-4 py-3" id="checkAvailability">Cek Ketersediaan Penerjemah</a>
+                <div class="col-lg-8" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="display-4 fw-bold mb-4">Tingkatkan Reputasi<span class="highlight">Internasional</span> Perusahaan Anda</h1>
+                    <p class="lead mb-5">Interpreter Profesional untuk Kunjungan Bisnis dan Audit Internasional. Bangun kepercayaan, tampil profesional, dan jaga kualitas komunikasi dengan mitra internasional Anda.</p>
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center" data-aos="fade-up" data-aos-delay="200">
+                        <a href="#kontak" class="btn btn-primary btn-lg px-4 py-3" id="bookConsultation">Konsultasi Gratis</a>
+                        <a href="#layanan" class="btn btn-secondary btn-lg px-4 py-3" id="checkAvailability">Booking Interpreter</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Services Section -->
-    <section class="py-5 bg-light" id="layanan">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h2 class="section-title display-5">Layanan Spesialis Kami</h2>
-                <p class="lead text-muted">Layanan penerjemahan profesional yang disesuaikan untuk kebutuhan industri manufaktur</p>
-            </div>
-            
-            <div class="row g-4">
-                <!-- Service 1 -->
-                <div class="col-md-4">
-                    <div class="card service-card h-100 border-0 shadow-sm">
-                        <div class="service-img" style="background-image: url('https://via.placeholder.com/600x400/0a4d92/ffffff?text=Penerjemah+Audit+ISO');"></div>
-                        <div class="card-body p-4">
-                            <h3 class="card-title">Penerjemah untuk Audit ISO</h3>
-                            <p class="card-text">Pastikan komunikasi yang jelas selama audit sertifikasi dan pengawasan ISO yang kritis dengan penerjemah spesialis kami.</p>
-                            <ul class="mb-4">
-                                <li>Keahlian terminologi ISO 9001, 14001, 45001</li>
-                                <li>Penerjemahan dokumentasi teknis</li>
-                                <li>Penerjemahan real-time selama wawancara audit</li>
-                                <li>Bantuan dengan respons tindakan korektif</li>
-                            </ul>
-                            <a href="#kontak" class="btn btn-primary" id="isoAuditCTA">Minta Penerjemah Audit ISO</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Service 2 -->
-                <div class="col-md-4">
-                    <div class="card service-card h-100 border-0 shadow-sm">
-                        <div class="service-img" style="background-image: url('https://via.placeholder.com/600x400/0077cc/ffffff?text=Penerjemah+Kunjungan+Pabrik');"></div>
-                        <div class="card-body p-4">
-                            <h3 class="card-title">Kunjungan Pabrik dengan Mitra Asing</h3>
-                            <p class="card-text">Berikan kesan yang tepat kepada klien, investor, dan mitra asing selama kunjungan pabrik yang penting.</p>
-                            <ul class="mb-4">
-                                <li>Terminologi proses manufaktur</li>
-                                <li>Konteks budaya dan etiket bisnis</li>
-                                <li>Dukungan presentasi teknis</li>
-                                <li>Fasilitasi tanya jawab dan bantuan tindak lanjut</li>
-                            </ul>
-                            <a href="#kontak" class="btn btn-primary" id="factoryVisitCTA">Pesan Penerjemah Kunjungan Pabrik</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Service 3 -->
-                <div class="col-md-4">
-                    <div class="card service-card h-100 border-0 shadow-sm">
-                        <div class="service-img" style="background-image: url('https://via.placeholder.com/600x400/ff6b00/ffffff?text=Penerjemah+Pelatihan+Teknis');"></div>
-                        <div class="card-body p-4">
-                            <h3 class="card-title">Pelatihan Teknis untuk Klien Luar Negeri</h3>
-                            <p class="card-text">Jembatani kesenjangan bahasa selama sesi pelatihan teknis dengan klien atau anggota tim dari luar negeri.</p>
-                            <ul class="mb-4">
-                                <li>Terminologi pengoperasian peralatan</li>
-                                <li>Penerjemahan prosedur keselamatan</li>
-                                <li>Interpretasi manual teknis</li>
-                                <li>Bantuan demonstrasi langsung</li>
-                            </ul>
-                            <a href="#kontak" class="btn btn-primary" id="technicalTrainingCTA">Jadwalkan Penerjemah Pelatihan</a>
-                        </div>
-                    </div>
+            <div class="row mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-md-8 text-center">
+                    <img src="https://via.placeholder.com/800x400/ffffff/333333?text=Komunikasi+Tanpa+Batas" alt="Komunikasi Tanpa Batas" class="img-fluid rounded shadow floating">
                 </div>
             </div>
         </div>
@@ -418,14 +786,14 @@
     <!-- Testimonials Section -->
     <section class="py-5" id="testimoni">
         <div class="container py-5">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="section-title display-5">Apa Kata Klien Kami</h2>
                 <p class="lead text-muted">Dipercaya oleh perusahaan manufaktur terkemuka di wilayah ini</p>
             </div>
             
             <div class="row g-4">
                 <!-- Testimonial 1 -->
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="card testimonial-card h-100 border-0 shadow-sm p-4">
                         <div class="testimonial-text mb-4">
                             "Penerjemah membuat proses audit ISO kami berjalan lancar dan percaya diri. Pengetahuan teknis mereka sangat mengesankan dan membantu kami mencapai sertifikasi tanpa masalah komunikasi."
@@ -441,7 +809,7 @@
                 </div>
                 
                 <!-- Testimonial 2 -->
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="card testimonial-card h-100 border-0 shadow-sm p-4">
                         <div class="testimonial-text mb-4">
                             "Memiliki penerjemah profesional selama kunjungan klien Jepang ke pabrik kami sangat penting. Pengetahuan terminologi teknis dan pemahaman budaya membantu kami mendapatkan kontrak besar."
@@ -457,7 +825,7 @@
                 </div>
                 
                 <!-- Testimonial 3 -->
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="card testimonial-card h-100 border-0 shadow-sm p-4">
                         <div class="testimonial-text mb-4">
                             "Pelatihan teknis untuk tim kami dari luar negeri tidak mungkin dilakukan tanpa keahlian penerjemah. Mereka memahami bahasa dan terminologi mesin yang kompleks."
@@ -473,7 +841,7 @@
                 </div>
             </div>
             
-            <div class="text-center mt-5">
+            <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="400">
                 <p class="mb-4">Digunakan oleh 15+ produsen di Bandung & Jabodetabek</p>
                 <div class="row justify-content-center align-items-center g-4">
                     <div class="col-4 col-md-2">
@@ -496,14 +864,135 @@
         </div>
     </section>
     
+    <!-- Services Section -->
+    <section class="py-5 bg-light" id="layanan">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title display-5">Layanan Spesialis Kami</h2>
+                <p class="lead text-muted">Layanan Interpreter profesional yang disesuaikan untuk kebutuhan industri manufaktur</p>
+            </div>
+            
+            <div class="row cardrow1 g-4 mb-5">
+                <!-- Service 1 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card service-card h-100 border-0 shadow-sm">
+                        <div class="service-img" style="background-image: url('https://via.placeholder.com/600x400/0a4d92/ffffff?text=Penerjemah+Audit+ISO');"></div>
+                        <div class="card-body p-4">
+                            <h3 class="card-title">Audit Internasional</h3>
+                            <p class="card-text">Pastikan komunikasi yang jelas selama audit sertifikasi dan pengawasan ISO yang kritis dengan penerjemah spesialis kami.</p>
+                            <ul class="mb-4">
+                                <li>Keahlian terminologi ISO 9001, 14001, 45001</li>
+                                <li>Penerjemahan dokumentasi teknis</li>
+                                <li>Penerjemahan real-time selama wawancara audit</li>
+                                <li>Bantuan dengan respons tindakan korektif</li>
+                            </ul>
+                            <a href="#kontak" class="btn btn-primary" id="isoAuditCTA">Minta Penerjemah Audit ISO</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card service-card h-100 border-0 shadow-sm">
+                        <div class="service-img" style="background-image: url('https://via.placeholder.com/600x400/0077cc/ffffff?text=Penerjemah+Kunjungan+Pabrik');"></div>
+                        <div class="card-body p-4">
+                            <h3 class="card-title">Kunjungan Pabrik dengan Mitra Internasional</h3>
+                            <p class="card-text">Berikan kesan yang tepat kepada klien, investor, dan mitra asing selama kunjungan pabrik yang penting.</p>
+                            <ul class="mb-4">
+                                <li>Terminologi proses manufaktur</li>
+                                <li>Konteks budaya dan etiket bisnis</li>
+                                <li>Dukungan presentasi teknis</li>
+                                <li>Fasilitasi tanya jawab dan bantuan tindak lanjut</li>
+                            </ul>
+                            <a href="#kontak" class="btn btn-primary" id="factoryVisitCTA">Pesan Penerjemah Kunjungan Pabrik</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card service-card h-100 border-0 shadow-sm">
+                        <div class="service-img" style="background-image: url('https://via.placeholder.com/600x400/ff6b00/ffffff?text=Penerjemah+Pelatihan+Teknis');"></div>
+                        <div class="card-body p-4">
+                            <h3 class="card-title">Pelatihan Teknis untuk Klien Luar Negeri</h3>
+                            <p class="card-text">Jembatani kesenjangan bahasa selama sesi pelatihan teknis dengan klien atau anggota tim dari luar negeri.</p>
+                            <ul class="mb-4">
+                                <li>Terminologi pengoperasian peralatan</li>
+                                <li>Penerjemahan prosedur keselamatan</li>
+                                <li>Interpretasi manual teknis</li>
+                                <li>Bantuan demonstrasi langsung</li>
+                            </ul>
+                            <a href="#kontak" class="btn btn-primary" id="technicalTrainingCTA">Jadwalkan Penerjemah Pelatihan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row cardrow2 g-4 mb-5">    
+                <!-- Service 4 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card service-card h-100 border-0 shadow-sm">
+                        <div class="service-img" style="background-image: url('https://via.placeholder.com/600x400/0a4d92/ffffff?text=Penerjemah+Konsultasi+Teknis');"></div>
+                        <div class="card-body p-4">
+                            <h3 class="card-title">Presentasi Bisnis</h3>
+                            <p class="card-text">Dapatkan dukungan penerjemahan untuk konsultasi teknis dengan ahli dari luar negeri.</p>
+                            <ul class="mb-4">
+                                <li>Terminologi teknik dan spesifikasi</li>
+                                <li>Penerjemahan dokumen teknis</li>
+                                <li>Interpretasi selama sesi tanya jawab</li>
+                                <li>Bantuan tindak lanjut dan dokumentasi</li>
+                            </ul>
+                            <a href="#kontak" class="btn btn-primary" id="technicalConsultationCTA">Pesan Penerjemah Konsultasi</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 5 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card service-card h-100 border-0 shadow-sm">
+                        <div class="service-img" style="background-image: url('https://via.placeholder.com/600x400/0a4d92/ffffff?text=Penerjemah+Konsultasi+Teknis');"></div>
+                        <div class="card-body p-4">
+                            <h3 class="card-title">Pertemuan dan Konferensi Internasional</h3>
+                            <p class="card-text">Dapatkan dukungan penerjemahan untuk konsultasi teknis dengan ahli dari luar negeri.</p>
+                            <ul class="mb-4">
+                                <li>Terminologi teknik dan spesifikasi</li>
+                                <li>Penerjemahan dokumen teknis</li>
+                                <li>Interpretasi selama sesi tanya jawab</li>
+                                <li>Bantuan tindak lanjut dan dokumentasi</li>
+                            </ul>
+                            <a href="#kontak" class="btn btn-primary" id="technicalConsultationCTA">Pesan Penerjemah Konsultasi</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Service 6 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card service-card h-100 border-0 shadow-sm">
+                        <div class="service-img" style="background-image: url('https://via.placeholder.com/600x400/0a4d92/ffffff?text=Penerjemah+Konsultasi+Teknis');"></div>
+                        <div class="card-body p-4">
+                            <h3 class="card-title">Negosiasi dan Legal</h3>
+                            <p class="card-text">Dapatkan dukungan penerjemahan untuk konsultasi teknis dengan ahli dari luar negeri.</p>
+                            <ul class="mb-4">
+                                <li>Terminologi teknik dan spesifikasi</li>
+                                <li>Penerjemahan dokumen teknis</li>
+                                <li>Interpretasi selama sesi tanya jawab</li>
+                                <li>Bantuan tindak lanjut dan dokumentasi</li>
+                            </ul>
+                            <a href="#kontak" class="btn btn-primary" id="technicalConsultationCTA">Pesan Penerjemah Konsultasi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Profile Section -->
     <section class="py-5 bg-light" id="profil">
         <div class="container py-5">
             <div class="row align-items-center g-5">
-                <div class="col-lg-4 text-center">
-                    <img src="https://via.placeholder.com/300x300/0a4d92/ffffff?text=Penerjemah+Profesional" alt="Penerjemah Profesional" class="img-fluid rounded-circle border border-5 border-white shadow" style="max-width: 300px;">
+                <div class="col-lg-4 text-center" data-aos="fade-right">
+                    <div class="profile-image">
+                        <img src="https://via.placeholder.com/300x300/0a4d92/ffffff?text=Penerjemah+Profesional" alt="Penerjemah Profesional" class="img-fluid rounded-circle border border-5 border-white shadow" style="max-width: 300px;">
+                    </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-8" data-aos="fade-left">
                     <h2 class="display-5 mb-4">Temui Penerjemah Profesional Anda</h2>
                     <p class="lead">Dengan pengalaman lebih dari 10 tahun di industri manufaktur, penerjemah utama kami mengkhususkan diri dalam terminologi teknis dan komunikasi bisnis lintas budaya.</p>
                     <p>Setelah bekerja dengan perusahaan multinasional di seluruh area Cikarang, Bandung, Subang, dan Jakarta, kami memahami tantangan unik yang dihadapi oleh perusahaan manufaktur selama audit, kunjungan klien, dan sesi pelatihan teknis.</p>
@@ -533,23 +1022,25 @@
     
     <!-- CTA Section -->
     <section class="cta-section py-5 text-center text-white" id="cta">
-        <div class="container py-5">
-            <h2 class="display-5 mb-4">Siap Memastikan Komunikasi yang Jelas?</h2>
-            <p class="lead mb-5 mx-auto" style="max-width: 700px;">Jangan ambil risiko kesalahpahaman selama interaksi bisnis penting. Layanan penerjemah khusus kami memastikan operasi manufaktur Anda berjalan lancar dengan mitra, auditor, dan klien internasional.</p>
-            <a href="#kontak" class="btn btn-primary btn-lg px-5 py-3" id="ctaButton">Pesan Penerjemah Anda Hari Ini</a>
+        <div class="container py-5 cta-content">
+            <div data-aos="zoom-in">
+                <h2 class="display-5 mb-4">Siap Memastikan Komunikasi yang Jelas?</h2>
+                <p class="lead mb-5 mx-auto" style="max-width: 700px;">Jangan ambil risiko kesalahpahaman selama interaksi bisnis penting. Layanan penerjemah khusus kami memastikan operasi manufaktur Anda berjalan lancar dengan mitra, auditor, dan klien internasional.</p>
+                <a href="#kontak" class="btn btn-primary btn-lg px-5 py-3" id="ctaButton">Pesan Penerjemah Anda Hari Ini</a>
+            </div>
         </div>
     </section>
     
     <!-- Contact Section -->
     <section class="py-5 bg-light" id="kontak">
         <div class="container py-5">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <h2 class="section-title display-5">Hubungi Kami</h2>
                 <p class="lead text-muted">Hubungi kami untuk mendiskusikan kebutuhan penerjemah Anda</p>
             </div>
             
             <div class="row g-5">
-                <div class="col-lg-5">
+                <div class="col-lg-5" data-aos="fade-right">
                     <h3 class="h4 mb-4">Kami Siap Membantu</h3>
                     <p class="mb-4">Hubungi kami untuk mendiskusikan kebutuhan penerjemah spesifik untuk fasilitas manufaktur Anda. Kami melayani area Cikarang, Bandung, Subang, dan Jakarta.</p>
                     
@@ -574,7 +1065,7 @@
                     </div>
                 </div>
                 
-                <div class="col-lg-7">
+                <div class="col-lg-7" data-aos="fade-left">
                     <div class="card border-0 shadow-sm">
                         <div class="card-body p-4 p-md-5">
                             <form id="bookingForm">
@@ -636,7 +1127,7 @@
     <footer class="pt-5 pb-3">
         <div class="container">
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <h5 class="mb-4">Penerjemah Korporat</h5>
                     <p class="text-white-50">Layanan penerjemah profesional untuk perusahaan manufaktur di area Cikarang, Bandung, Subang, dan Jakarta.</p>
                     <div class="social-links mt-4">
@@ -647,7 +1138,7 @@
                     </div>
                 </div>
                 
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <h5 class="mb-4">Layanan Kami</h5>
                     <ul class="footer-links">
                         <li><a href="#layanan">Penerjemah Audit ISO</a></li>
@@ -657,7 +1148,7 @@
                     </ul>
                 </div>
                 
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                     <h5 class="mb-4">Area Layanan</h5>
                     <ul class="footer-links">
                         <li><a href="#">Cikarang</a></li>
@@ -668,7 +1159,7 @@
                     </ul>
                 </div>
                 
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <h5 class="mb-4">Tautan Cepat</h5>
                     <ul class="footer-links">
                         <li><a href="#beranda">Beranda</a></li>
@@ -694,8 +1185,67 @@
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     
+    <!-- AOS - Animate On Scroll Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
     <!-- Custom JavaScript -->
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+        
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            preloader.classList.add('fade-out');
+            
+            setTimeout(function() {
+                preloader.style.display = 'none';
+            }, 500);
+        });
+        
+        // Logo Scroll Effect
+        window.addEventListener('scroll', function() {
+            const complogo = document.querySelector('.complogo');
+            if (window.scrollY > 50) {
+                complogo.classList.add('scrolled');
+            } else {
+                complogo.classList.remove('scrolled');
+            }
+        });
+        
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Reveal Animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        
+        window.addEventListener('scroll', reveal);
+        reveal(); // Call once on page load
+        
         // Back to Top Button
         const backToTopBtn = document.getElementById('backToTop');
         
@@ -743,7 +1293,7 @@
             });
         });
         
-        // Form Submission
+        // Form Submission with Animation
         const bookingForm = document.getElementById('bookingForm');
         
         bookingForm.addEventListener('submit', (e) => {
@@ -758,12 +1308,22 @@
             const date = document.getElementById('date').value;
             const message = document.getElementById('message').value;
             
-            // Here you would typically send this data to your server
-            // For this example, we'll just show an alert
-            alert(`Terima kasih, ${name}! Permintaan pemesanan Anda telah diterima. Kami akan menghubungi Anda segera untuk mengkonfirmasi layanan penerjemah Anda untuk tanggal ${date}.`);
+            // Add loading state to button
+            const submitButton = document.getElementById('submitForm');
+            submitButton.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Mengirim...';
+            submitButton.disabled = true;
             
-            // Reset form
-            bookingForm.reset();
+            // Simulate form submission delay
+            setTimeout(() => {
+                // Here you would typically send this data to your server
+                // For this example, we'll just show an alert
+                alert(`Terima kasih, ${name}! Permintaan pemesanan Anda telah diterima. Kami akan menghubungi Anda segera untuk mengkonfirmasi layanan penerjemah Anda untuk tanggal ${date}.`);
+                
+                // Reset form and button
+                bookingForm.reset();
+                submitButton.innerHTML = 'Kirim Permintaan';
+                submitButton.disabled = false;
+            }, 1500);
         });
         
         // Track CTA Clicks for Analytics
